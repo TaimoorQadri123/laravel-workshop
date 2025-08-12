@@ -1,0 +1,1 @@
+<h1 class="bg-warning">Register Page</h1>
