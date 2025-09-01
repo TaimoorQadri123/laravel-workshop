@@ -1,1 +1,0 @@
-<h1 class="bg-danger">Hello World</h1>

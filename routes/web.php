@@ -1,15 +1,25 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ProductController;
-
+use App\Http\Controllers\RegisterController;
 Route::get('/', function () {
-    return view('register');
+    return view('website.welcome');
+});
+
+
+// Login Route
+Route::get('/login',[RegisterController::class,'login'])->name('website.login');
+
+//Register Route
+Route::get('/register',[RegisterController::class,'register'])->name('website.register');
+Route::post('/register',[RegisterController::class,'registerusers'])->name('website.register');
+
+
+Route::get('/users', function () {
+    return view('users');
 });
 
 
 
-Route::get('/product', [ProductController::class, 'index'])->name('product.index');
-
-
+// Route::get('/users',[RegisterController::class,'register']);
 
