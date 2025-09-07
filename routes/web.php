@@ -2,14 +2,22 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\CategoryController;
 Route::get('/', function () {
     return view('website.welcome');
 });
+
 
 Route::get('/admin', function () {
     return view('admin.index');
 });
 
+//Category Routing
+Route::get('/category',[CategoryController::class,'Index'])->name('category.index');
+
+Route::post('/categorystore',[CategoryController::class,'store'])->name('category.store');
+
+Route::get('/categorydelete/{id}',[CategoryController::class,'delete'])->name('category.delete');
 
 // Login Route
 Route::get('/login',[RegisterController::class,'login'])->name('website.login');
