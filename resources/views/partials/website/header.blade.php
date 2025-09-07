@@ -107,9 +107,17 @@
 							<li>
 								<a href="contact.html">Contact</a>
 							</li>
-              <li>
+              				
+
+							@if(session('userrole') == 'user')
+								<li>
+									<a href="/logout">Logout</a>
+								</li>
+							@else
+							<li>
 								<a href="/login">Login</a>
 							</li>
+						@endif
 						</ul>
 					</div>	
 

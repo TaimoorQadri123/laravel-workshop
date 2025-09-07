@@ -112,6 +112,11 @@ body {
         <div class="text-center mt-4 name">
             Register Form
         </div>
+
+        @if(Session::has('success'))
+            <p class="text-success">{{Session::get("success")}}</p>
+        @endif
+        
         <form action="/register" method="POST" class="p-3 mt-3">
            @csrf
             <div class="form-field d-flex align-items-center">

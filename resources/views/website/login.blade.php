@@ -112,16 +112,35 @@ body {
         <div class="text-center mt-4 name">
             Login Form
         </div>
-        <form class="p-3 mt-3">
+        @if(Session::has('success'))
+            <p class="text-success">{{Session::get("success")}}</p>
+        @endif
+        
+        <form action="/login" method="POST" class="p-3 mt-3">
+           @csrf
+            
+
             <div class="form-field d-flex align-items-center">
                 <span class="far fa-user"></span>
-                <input type="text" name="userName" id="userName" placeholder="Username">
+                <input value="{{ old('email') }}" type="email" name="email" id="userName" placeholder="Email">
             </div>
+            @error('email')
+                <span class="text-danger">{{$message}}</span>
+            @enderror
+
             <div class="form-field d-flex align-items-center">
                 <span class="fas fa-key"></span>
-                <input type="password" name="password" id="pwd" placeholder="Password">
+                <input value="{{ old('password') }}" type="password" name="password" id="pwd" placeholder="Password">
             </div>
-            <button class="btn mt-3">Login</button>
+
+            @error('password')
+                <span class="text-danger">{{$message}}</span>
+            @enderror
+
+
+            
+
+            <button type="submit" class="btn mt-3">Login</button>
         </form>
         <div class="text-center fs-6">
             <a href="#">Forget password?</a> or <a href="/register">Sign up</a>
