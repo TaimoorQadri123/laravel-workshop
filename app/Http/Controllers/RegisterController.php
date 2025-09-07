@@ -52,6 +52,13 @@ class RegisterController extends Controller
 
                     if($users->role == "admin"){
 
+                      session([
+                            "adminrole" =>$users->role 
+                        ]);
+
+                           return redirect('/admin');
+
+
                     }else{
                         session([
                             "userrole" =>$users->role 

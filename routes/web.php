@@ -6,6 +6,10 @@ Route::get('/', function () {
     return view('website.welcome');
 });
 
+Route::get('/admin', function () {
+    return view('admin.index');
+});
+
 
 // Login Route
 Route::get('/login',[RegisterController::class,'login'])->name('website.login');
