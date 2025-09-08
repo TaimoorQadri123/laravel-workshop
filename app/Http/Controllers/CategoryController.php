@@ -50,4 +50,44 @@ class CategoryController extends Controller
 
         return redirect()->back()->with('success','Category Deleted Successfully');
     }
+
+
+    public function edit($id){
+         $edit = category::findOrFail($id);
+
+         return view('admin.category-edit',compact('edit'));
+    }
+
+    public function update(Request $request){
+                $category = category::findOrFail($request->id);
+
+                $validated = $request->validate([
+                    'cat_name' => 'required|unique:categories,cat_name,'.$request->id,
+                     'cat_image' => 'image|mimes:jpg,png',
+                ]);
+
+
+                if($request->hasFile('cat_image')){
+                   
+                    if(file_exists(public_path('uploads/'.$request->cat_image))){
+                        //Folder -> Image -> Delete
+                        unlink(public_path('uploads/'.$request->cat_image));
+                    }
+
+
+                    $categoryName = time().'.'.$request->cat_image->extension();
+                    //1234.jpg
+                    //move into folder
+                    $request->cat_image->move(public_path('uploads/'),$categoryName);
+
+                    $category->cat_image = $categoryName;
+                }
+                $category->cat_name = $request->cat_name;
+                //Query
+
+                $category->save();
+
+                 return redirect()->back()->with('success','Category Updated Successfully');
+
+    }
 }

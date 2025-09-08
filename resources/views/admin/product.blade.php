@@ -14,7 +14,7 @@
 
             <div class="card">
                 <div class="card-title">
-                    <a href="" class="btn btn-primary m-3" data-bs-toggle="modal" data-bs-target="#addCategoryModal">Add Category</a>
+                    <a href="/product/add" class="btn btn-primary m-3">Add Product</a>
                 </div>
                 <div class="card-body">
                     <table class="table">
@@ -24,7 +24,7 @@
                             <th>Action</th>
                         </tr>
 
-                        @foreach ($category as $categories)
+                        {{-- @foreach ($category as $categories)
                             <tr>
                                 <td>{{$categories->cat_name}}</td>
                                 <td>
@@ -35,7 +35,7 @@
                                     <a href="/category/edit/{{$categories->id}}" class="btn btn-success">Update</a>
                                 </td>
                         </tr>
-                        @endforeach
+                        @endforeach --}}
                         
                     </table>
                 </div>

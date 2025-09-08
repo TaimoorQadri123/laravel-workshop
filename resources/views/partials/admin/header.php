@@ -64,6 +64,8 @@
                     <!-- {{-- Category Navigation --}} -->
                     <a href="/category" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Category</a>
 
+                    <a href="/product" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Product</a>
+
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>Elements</a>
                         <div class="dropdown-menu bg-transparent border-0">
